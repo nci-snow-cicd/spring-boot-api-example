@@ -10,6 +10,22 @@ pipeline {
                 sh './gradlew assemble'
             }
         }
+        stage('SonarQube Analysis') {
+	        steps {
+                script {
+		            sh "/var/jenkins_home/tools/hudson.plugins.sonar.SonarRunnerInstallation/SonarCubeScanner/bin/sonar-scanner \
+		            -Dsonar.host.url=http://ncias-d2583-c.nci.nih.gov:9000  \
+		            -Dsonar.projectName=spring-boot-api-example \
+		            -Dsonar.projectVersion=1.0 \
+	    	        -Dsonar.projectKey=spring-boot-api-example \
+		            -Dsonar.language=java \
+	    	        -Dsonar.login=2bd9b9b28760e95bf52aaa0f98a047c2c87c8537 \
+	    	        -Dsonar.sources=/var/jenkins_home/jobs/$JOB_NAME \
+	    	        -Dsonar.sourceEncoding=UTF-8 \
+		            -Dsonar.java.binaries=/var/jenkins_home/jobs/spring-boot-api-example/workspace/build/classes"
+            }
+	    }
+	}
         stage('Test') {
             steps {
                 sh './gradlew test'
