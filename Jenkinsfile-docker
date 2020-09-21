@@ -19,7 +19,7 @@ pipeline {
 		            	-Dsonar.projectVersion=1.0 \
 	    	        	-Dsonar.projectKey=spring-boot-api-example \
 		            	-Dsonar.language=java \
-	    	        	-Dsonar.login=2bd9b9b28760e95bf52aaa0f98a047c2c87c8537 \
+	    	        	-Dsonar.login=328e557dae5a088b08ad6a3d41c4235112d119b0 \
 	    	        	-Dsonar.sources=/var/jenkins_home/jobs/$JOB_NAME \
 	    	        	-Dsonar.sourceEncoding=UTF-8 \
 		            	-Dsonar.java.binaries=/var/jenkins_home/jobs/theme-park-job-docker/workspace/build/classes"
